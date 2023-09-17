@@ -1,5 +1,5 @@
 # yeet
-## (╯°□°)╯︵ ┻━┻
+### (╯°□°)╯︵ ┻━┻
 
 _yeet_ is an image caching and optimizing proxy, with support for uploading. I built it for [ellie.wtf](https://ellie.wtf)
 
