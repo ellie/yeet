@@ -1,0 +1,18 @@
+[package]
+name = "yeet"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "0.6.20", features = ["multipart"] }
+blake3 = "1.4.1"
+eyre = "0.6.8"
+futures-util = "0.3.28"
+mozjpeg = { version = "0.10.1", features = ["with_simd", "parallel"] }
+rexiv2 = "0.10.0"
+rgb = "0.8.36"
+rust-s3 = { version = "0.33.0", features = ["with-tokio"] }
+tokio = { version = "1.32.0", features = ["full"] }
+tokio-util = "0.7.8"
