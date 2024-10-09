@@ -29,7 +29,12 @@ fn get_optimized(state: AppState, name: &str) -> Result<std::path::PathBuf> {
         // TODO: support other filetypes
         match input.extension().and_then(OsStr::to_str) {
             Some("jpg") | Some("jpeg") => jpg::optimize(&input, &path)?,
-            _ => (),
+            _ => {
+                // If we can't optimize an image, just return the same path we get
+                let mut path = state.images();
+                path.push(name);
+                return Ok(path);
+            }
         };
     }
 
@@ -67,7 +72,8 @@ fn extension_to_header(extension: &str) -> Result<(HeaderName, &'static str)> {
     match extension.to_lowercase().as_str() {
         "jpg" | "jpeg" => Ok((CONTENT_TYPE, "image/jpeg")),
         "png" => Ok((CONTENT_TYPE, "image/png")),
-        _ => Err(eyre!("Unknown file extension")),
+        "arw" => Ok((CONTENT_TYPE, "image/x-sony-arw")),
+        _ => Ok((CONTENT_TYPE, "application/octet-stream")),
     }
 }
 
