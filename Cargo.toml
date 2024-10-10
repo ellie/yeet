@@ -16,3 +16,5 @@ rgb = "0.8.36"
 rust-s3 = { version = "0.33.0", features = ["with-tokio"] }
 tokio = { version = "1.32.0", features = ["full"] }
 tokio-util = "0.7.8"
+tower = "0.5.1"
+tower-sanitize-path = "0.2.0"
